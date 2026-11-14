@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-mood="mild" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Degrees — Temperature Converter</title>
+  <meta name="description" content="A mood-shifting temperature converter for Celsius, Fahrenheit and Kelvin.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23C8663F'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23F4EDE4' stroke-width='6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Weather scene: sky, sun/moon, clouds and falling snow / embers, all driven by the temperature -->
+  <div class="scene" aria-hidden="true">
+    <div class="sky s-frozen"></div>
+    <div class="sky s-chilly"></div>
+    <div class="sky s-mild"></div>
+    <div class="sky s-warm"></div>
+    <div class="sky s-hot"></div>
+    <div class="sky s-boiling"></div>
+    <div class="shade"></div>
+    <div class="stars"></div>
+    <div class="rays"></div>
+    <div class="sun"></div>
+    <div class="clouds">
+      <i class="cl cl1"></i><i class="cl cl2"></i><i class="cl cl3"></i>
+      <i class="cl cl4"></i><i class="cl cl5"></i><i class="cl cl6"></i>
+    </div>
+    <div class="fog"></div>
+    <div class="glow"></div>
+    <canvas id="fx"></canvas>
+  </div>
+
+  <header class="top">
+    <a class="logo" href="./" aria-label="Degrees — temperature converter">degrees<span>°</span></a>
+    <div class="top-actions">
+      <button type="button" class="icon-btn" id="soundBtn" aria-pressed="true" aria-label="Sound on" title="Click sound">🔊</button>
+      <button type="button" class="icon-btn" id="themeBtn" aria-pressed="false" aria-label="Switch to dark mode" title="Dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="stage">
+
+    <!-- ===== Poster / result ===== -->
+    <section class="poster" aria-labelledby="moodLine">
+      <div class="emoji-wrap" aria-hidden="true">
+        <span class="weather" id="weatherEmoji">🌤️</span>
+        <span class="face" id="faceEmoji">😌</span>
+      </div>
+
+      <p class="mood-line" id="moodLine">Feeling <em id="moodWord">just right</em>.</p>
+
+      <p class="from-line" id="fromLine">22 °C is</p>
+      <p class="readout" aria-hidden="true"><span class="num" id="bigNumber">71.6</span><span class="unit" id="bigUnit">°F</span></p>
+      <p class="sr-only" id="srResult" aria-live="polite"></p>
+
+      <p class="fact" id="fact">Cosy room temperature. Nobody's complaining.</p>
+
+      <ul class="all-units" id="allUnits" aria-label="All units">
+        <li data-u="C"><span class="v" id="vC">22</span><span class="s">°C</span></li>
+        <li data-u="F"><span class="v" id="vF">71.6</span><span class="s">°F</span></li>
+        <li data-u="K"><span class="v" id="vK">295.15</span><span class="s">K</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== Controls ===== -->
+    <section class="panel" aria-labelledby="title">
+      <h1 id="title">Degrees, but make it <em>a mood.</em></h1>
+      <p class="panel-sub">Convert Celsius, Fahrenheit and Kelvin. The whole page changes with the weather.</p>
+
+      <form id="form" novalidate autocomplete="off">
+        <label class="field-label" for="value">Temperature</label>
+        <div class="input-wrap" id="inputWrap">
+          <input id="value" name="value" type="text" inputmode="decimal" value="22" placeholder="e.g. 36.6" aria-describedby="error" aria-invalid="false" spellcheck="false">
+          <span class="input-unit" id="inputUnit" aria-hidden="true">°C</span>
+        </div>
+        <p class="error" id="error" role="alert"></p>
+
+        <div class="units-row">
+          <fieldset class="seg" id="fromSeg">
+            <legend>From</legend>
+            <label><input type="radio" name="from" value="C" checked><span>°C</span></label>
+            <label><input type="radio" name="from" value="F"><span>°F</span></label>
+            <label><input type="radio" name="from" value="K"><span>K</span></label>
+          </fieldset>
+
+          <button type="button" class="swap" id="swapBtn" aria-label="Swap units" title="Swap units">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4"/><path d="M3 8h14"/><path d="m17 20 4-4-4-4"/><path d="M21 16H7"/></svg>
+          </button>
+
+          <fieldset class="seg" id="toSeg">
+            <legend>To</legend>
+            <label><input type="radio" name="to" value="C"><span>°C</span></label>
+            <label><input type="radio" name="to" value="F" checked><span>°F</span></label>
+            <label><input type="radio" name="to" value="K"><span>K</span></label>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="convert" id="convertBtn">Convert <span aria-hidden="true">→</span></button>
+      </form>
+
+      <div class="presets" aria-label="Quick presets">
+        <p class="field-label">Quick presets</p>
+        <div class="chips">
+          <button type="button" class="chip" data-c="0"><span aria-hidden="true">🧊</span> Freezing</button>
+          <button type="button" class="chip" data-c="22"><span aria-hidden="true">🛋️</span> Room</button>
+          <button type="button" class="chip" data-c="37"><span aria-hidden="true">🫀</span> Body</button>
+          <button type="button" class="chip" data-c="100"><span aria-hidden="true">♨️</span> Boiling</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="ghost" id="copyBtn">Copy result</button>
+      </div>
+
+      <div class="history" id="historyBox">
+        <div class="history-head">
+          <p class="field-label">History</p>
+          <button type="button" class="link" id="clearBtn" hidden>Clear</button>
+        </div>
+        <p class="history-empty" id="historyEmpty">Your conversions will show up here.</p>
+        <ol class="history-list" id="historyList"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>°F = °C × 9/5 + 32 &nbsp;·&nbsp; K = °C + 273.15</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p class="noscript">This converter needs JavaScript to do its maths. Please enable it and refresh.</p></noscript>
+  <script src="script.js"></script>
+</body>
+</html>

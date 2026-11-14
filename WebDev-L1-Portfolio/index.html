@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arya Sharma — Portfolio</title>
+<meta name="description" content="Portfolio of Arya Sharma, web developer and B.Tech Cybersecurity student at LNCTS Bhopal.">
+<meta name="theme-color" content="#1A0B0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className += ' js';</script>
+</head>
+<body>
+
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top" aria-label="Arya Sharma, back to top">A<em>S</em></a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+      <span class="label">Menu</span>
+    </button>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#about"><span class="num">I</span> About</a>
+      <a href="#skills"><span class="num">II</span> Skills</a>
+      <a href="#projects"><span class="num">III</span> Projects</a>
+      <a href="#contact"><span class="num">IV</span> Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <svg class="flower" viewBox="0 0 200 320" aria-hidden="true"><g fill="none" stroke="#C9A24B" stroke-width="1.2" stroke-linecap="round"><path d="M100 318 C96 250 104 190 100 120"/><path d="M100 250 C70 230 50 210 40 180 C70 190 90 210 100 250Z" fill="#7A0C1E" fill-opacity=".5"/><path d="M100 210 C130 190 152 170 160 140 C130 150 108 170 100 210Z" fill="#7A0C1E" fill-opacity=".5"/><g transform="translate(100 100)" fill="#B3122E" fill-opacity=".55"><ellipse rx="14" ry="34" cy="-30"/><ellipse rx="14" ry="34" cy="-30" transform="rotate(72)"/><ellipse rx="14" ry="34" cy="-30" transform="rotate(144)"/><ellipse rx="14" ry="34" cy="-30" transform="rotate(216)"/><ellipse rx="14" ry="34" cy="-30" transform="rotate(288)"/><circle r="9" fill="#C9A24B" fill-opacity=".8"/></g></g></svg>
+  <div class="corner corner--tl" aria-hidden="true"></div><div class="corner corner--br" aria-hidden="true"></div>
+  <div class="wrap hero__grid">
+    <div class="hero__text">
+      <p class="label reveal">Portfolio &middot; MMXXVI</p>
+      <h1 class="reveal">Arya <em>Sharma</em></h1>
+      <p class="hero__role reveal">Web developer &amp; <em>cybersecurity</em> student</p>
+      <p class="hero__line reveal">I build interfaces, and the systems behind them, one careful line at a time.</p>
+      <div class="hero__cta reveal">
+        <a class="btn" href="#projects">See the work</a>
+        <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      </div>
+      <p class="currently reveal"><span class="label">Currently</span>
+        Web Development &amp; Designing Intern at Oasis Infobyte, and Campus Ambassador at Internshala.</p>
+    </div>
+
+    <figure class="hero__frame reveal" aria-label="Portrait of Arya Sharma">
+      <div class="frame">
+        <img src="images/portrait-hero.jpg" width="533" height="710" alt="Arya Sharma, head resting on her hand, in a denim shirt" fetchpriority="high">
+      </div>
+      <svg class="seal" viewBox="0 0 120 120" role="img" aria-label="AS monogram with an ink pen">
+        <circle cx="60" cy="60" r="56" fill="#7A0C1E" stroke="#C9A24B" stroke-width="2"/>
+        <circle cx="60" cy="60" r="48" fill="none" stroke="#C9A24B" stroke-width="1" stroke-dasharray="2 4"/>
+        <text x="60" y="68" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" fill="#F1E6D3">A<tspan font-style="italic" fill="#C9A24B">S</tspan></text>
+        <path d="M30 96 L52 80 L56 84 L34 100 Z" fill="#C9A24B"/>
+        <path d="M30 96 L28 102 L34 100 Z" fill="#F1E6D3"/>
+        <path d="M70 94 q8 -6 20 -4" fill="none" stroke="#C9A24B" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </figure>
+  </div>
+  <div class="wrap">
+    <ul class="stats reveal">
+      <li><strong>5</strong><span class="label">Projects built</span></li>
+      <li><strong>4</strong><span class="label">Roles &amp; internships</span></li>
+      <li><strong>50<em>/200</em></strong><span class="label">Hackathon rank, internal SIH</span></li>
+      <li><strong>2028</strong><span class="label">B.Tech graduation</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#C9A24B" d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z"/></svg><span></span></div>
+
+<!-- I. ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <span class="numeral">I</span>
+      <div><p class="label">About me</p><h2>A student of <em>systems</em> and the web</h2></div>
+    </header>
+
+    <div class="about__grid">
+      <figure class="about__photo reveal">
+        <div class="frame frame--flat">
+          <img src="images/portrait-about.jpg" width="612" height="783" alt="Arya Sharma standing in a denim shirt and jeans" loading="lazy">
+        </div>
+      </figure>
+
+      <div class="about__body">
+        <p class="lead reveal">I'm a B.Tech student in Computer Science and Engineering (Cybersecurity) at LNCTS Bhopal, expected to graduate in 2028. I build websites and web apps with HTML, CSS, JavaScript and React, and I have interned in web development and event management. Beyond code, I lead events and marketing for Google Developer Groups at LNCT.</p>
+
+        <div class="cols">
+          <div class="reveal">
+            <h3 class="label">Experience</h3>
+            <ul class="ledger">
+              <li><strong>Web Development &amp; Designing Intern</strong><span>Oasis Infobyte, Remote &middot; Oct &ndash; Nov 2026</span></li>
+              <li><strong>Campus Ambassador</strong><span>Internshala, Remote &middot; Sep 2026 &ndash; Present</span></li>
+              <li><strong>Web Development &amp; Management Intern</strong><span>Sarasaniyam, Bhopal &middot; Jul &ndash; Oct 2026</span></li>
+              <li><strong>Event Management Lead &amp; Marketing Member</strong><span>GDG LNCT, Bhopal &middot; Sep 2025 &ndash; Present</span></li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <h3 class="label">Education &amp; honours</h3>
+            <ul class="ledger">
+              <li><strong>B.Tech, CSE (Cybersecurity)</strong><span>LNCTS Bhopal &middot; Expected 2028</span></li>
+              <li><strong>Smart India Hackathon (Internal)</strong><span>Top 50 of 200 teams</span></li>
+              <li><strong>FutureSkills Prime Gold Certificate</strong><span>Prompt Engineering</span></li>
+              <li><strong>Job simulations</strong><span>ServiceNow Virtual Internship, Deloitte Cyber Security/Technology</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="craft">
+          <div class="reveal"><span class="craft__n">i.</span><h3>Build</h3><p>Responsive websites and web apps in HTML, CSS, JavaScript and React.</p></div>
+          <div class="reveal"><span class="craft__n">ii.</span><h3>Design</h3><p>Clean interfaces and thoughtful UI/UX, learned through my Oasis Infobyte programme.</p></div>
+          <div class="reveal"><span class="craft__n">iii.</span><h3>Organise</h3><p>Hackathons and campus events, with promotional campaigns for outreach.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#C9A24B" d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z"/></svg><span></span></div>
+
+<!-- II. SKILLS -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <span class="numeral">II</span>
+      <div><p class="label">Skills</p><h2>An <em>index</em> of tools</h2></div>
+    </header>
+
+    <div class="index">
+      <div class="reveal">
+        <h3 class="label">Languages</h3>
+        <ul class="skill-list">
+          <li><span>HTML / CSS</span><i class="lv" data-l="3">strong</i></li>
+          <li><span>JavaScript</span><i class="lv" data-l="3">strong</i></li>
+          <li><span>TypeScript</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>Python</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>Java</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>SQL</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>C / C++</span><i class="lv" data-l="1">beginner</i></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3 class="label">Frameworks &amp; tools</h3>
+        <ul class="skill-list">
+          <li><span>React</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>Spring Boot</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>Firebase</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>Streamlit</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>Scikit-learn</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>MySQL</span><i class="lv" data-l="2">comfortable</i></li>
+          <li><span>Tailwind CSS</span><i class="lv" data-l="1">beginner</i></li>
+          <li><span>Git</span><i class="lv" data-l="1">beginner</i></li>
+          <li><span>Docker</span><i class="lv" data-l="1">beginner</i></li>
+          <li><span>Pandas</span><i class="lv" data-l="1">beginner</i></li>
+          <li><span>PostgreSQL</span><i class="lv" data-l="1">beginner</i></li>
+          <li><span>REST APIs</span><i class="lv" data-l="1">beginner</i></li>
+          <li><span>WebSockets</span><i class="lv" data-l="1">beginner</i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#C9A24B" d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z"/></svg><span></span></div>
+
+<!-- III. PROJECTS -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <span class="numeral">III</span>
+      <div><p class="label">Projects</p><h2>Selected <em>works</em></h2></div>
+    </header>
+
+    <div class="projects">
+
+      <article class="project reveal">
+        <p class="label gold">Project 01 &middot; Front-end</p>
+        <h3>The Sugar Cloud</h3>
+        <p class="project__desc">A landing page for a fictional home bakery.<br>Built with HTML, CSS and a small amount of JavaScript.</p>
+        <ul class="tools"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
+        <p class="links">
+          <a class="ulink" href="https://aryasharmacs006-cyber.github.io/OIBSIP/WebDev-L1-LandingPage/" target="_blank" rel="noopener">Live</a>
+          <a class="ulink" href="https://github.com/aryasharmacs006-cyber/OIBSIP/tree/main/WebDev-L1-LandingPage" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </article>
+
+      <article class="project reveal">
+        <p class="label gold">Project 02 &middot; Front-end</p>
+        <h3>Degrees</h3>
+        <p class="project__desc">A Celsius, Fahrenheit and Kelvin converter with validation, history, dark mode and weather-style backgrounds that follow the temperature.</p>
+        <ul class="tools"><li>HTML5</li><li>CSS3</li><li>Vanilla JavaScript</li></ul>
+        <p class="links">
+          <a class="ulink" href="https://aryasharmacs006-cyber.github.io/OIBSIP/WebDev-L1-TemperatureConverter/" target="_blank" rel="noopener">Live</a>
+          <a class="ulink" href="https://github.com/aryasharmacs006-cyber/OIBSIP/tree/main/WebDev-L1-TemperatureConverter" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </article>
+
+      <article class="project reveal">
+        <p class="label gold">Project 03 &middot; Security &amp; AI</p>
+        <h3>DART-NET</h3>
+        <p class="project__desc">An AI-based passive threat detection system for unidirectional IP traffic.</p>
+        <ul class="tools"><li>Java Spring Boot</li><li>React</li><li>Scikit-learn</li></ul>
+        <p class="links">
+          <a class="ulink" href="https://github.com/aryasharmacs006-cyber/DARTnet" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </article>
+
+      <article class="project reveal">
+        <p class="label gold">Project 04 &middot; IoT</p>
+        <h3>ECOMORPHIS</h3>
+        <p class="project__desc">An IoT waste management platform with smart bin tracking and a real-time dashboard.</p>
+        <ul class="tools"><li>Python</li><li>Streamlit</li><li>MySQL</li></ul>
+        <p class="links">
+          <a class="ulink" href="https://github.com/aryasharmacs006-cyber/Ecomorphis-" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </article>
+
+      <article class="project reveal">
+        <p class="label gold">Project 05 &middot; Full-stack</p>
+        <h3>MedicineBridge</h3>
+        <p class="project__desc">A bilingual prescription-upload web app with geolocation pharmacy tracking.</p>
+        <ul class="tools"><li>React</li><li>TypeScript</li><li>Firebase</li></ul>
+        <p class="links">
+          <a class="ulink" href="https://github.com/aryasharmacs006-cyber/Bitbybit" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#C9A24B" d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z"/></svg><span></span></div>
+
+<div class="divider" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#C9A24B" d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z"/></svg><span></span></div>
+
+<!-- V. CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <span class="numeral">IV</span>
+      <div><p class="label">Contact</p><h2>Let's <em>write</em> to each other</h2></div>
+    </header>
+
+    <div class="contact reveal">
+      <span class="corner corner--tl" aria-hidden="true"></span><span class="corner corner--br" aria-hidden="true"></span>
+      <p class="label gold">Get in touch</p>
+      <p class="contact__big">Have a project, an idea, or an <em>opportunity</em>? I'd love to hear it.</p>
+      <p class="contact__name">Arya Sharma</p>
+      <p><a class="ulink contact__mail" href="mailto:aryasharma.cs.006@gmail.com">aryasharma.cs.006@gmail.com</a></p>
+      <p class="contact__cta"><a class="btn" href="mailto:aryasharma.cs.006@gmail.com">Write a letter</a> <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a></p>
+      <ul class="social">
+        <li>
+          <a href="https://www.linkedin.com/in/aryasharmacs006" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3V9.75zm6.5 0h3.83v1.57h.06c.53-1 1.84-2.07 3.78-2.07 4.04 0 4.78 2.66 4.78 6.12v5.88h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4V9.75z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/aryasharmacs006-cyber" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="label">Set in Cormorant &amp; EB Garamond. Written by hand. &copy; <span id="year">2026</span></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

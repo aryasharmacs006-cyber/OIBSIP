@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Sugar Cloud — Home Bakery &amp; Dessert Studio</title>
+  <meta name="description" content="The Sugar Cloud is a small home bakery making cream puffs, milk bread and celebration cakes in tiny batches every morning.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%23F9C6D4'/%3E%3Cpath d='M18 43q-8 0-6-9 3-8 12-6 3-11 15-9 11 3 11 13 8 1 8 8 0 3-9 3z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ SVG sprite: hand-drawn illustrations ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <symbol id="i-puff" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="106" rx="38" ry="6" fill="#4A3338" opacity=".1" stroke="none"/>
+    <path d="M24 84 Q26 102 60 102 Q94 102 96 84 Z" fill="#F4C48A"/>
+    <path d="M24 72 H96 V82 q-6 10 -12 0 q-6 10 -12 0 q-6 10 -12 0 q-6 10 -12 0 q-6 10 -12 0 q-6 10 -12 0 Z" fill="#FFFBF2"/>
+    <path d="M24 74 C20 46 42 30 60 30 C78 30 100 46 96 74 Q60 66 24 74 Z" fill="#F2B873"/>
+    <circle cx="46" cy="46" r="1.8" fill="#FFFBF2" stroke="none"/>
+    <circle cx="78" cy="48" r="1.8" fill="#FFFBF2" stroke="none"/>
+    <circle cx="86" cy="62" r="1.6" fill="#FFFBF2" stroke="none"/>
+    <circle cx="48" cy="58" r="2.4" fill="#4A3338" stroke="none"/>
+    <circle cx="72" cy="58" r="2.4" fill="#4A3338" stroke="none"/>
+    <path d="M55 62 Q60 67 65 62" stroke-width="2.2"/>
+    <ellipse cx="41" cy="63" rx="4.5" ry="3" fill="#F28BA8" opacity=".55" stroke="none"/>
+    <ellipse cx="79" cy="63" rx="4.5" ry="3" fill="#F28BA8" opacity=".55" stroke="none"/>
+    <path d="M52 28 q8 -8 16 0 q2 9 -8 15 q-10 -6 -8 -15 Z" fill="#F28BA8"/>
+    <path d="M53 27 l7 -7 l7 7 l-7 2 Z" fill="#8FC79E" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-shortcake" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="106" rx="40" ry="6" fill="#4A3338" opacity=".1" stroke="none"/>
+    <path d="M26 80 H94 V94 Q94 102 86 102 H34 Q26 102 26 94 Z" fill="#FFE7A8"/>
+    <path d="M24 70 H96 V80 H24 Z" fill="#FFFBF2"/>
+    <path d="M26 60 H94 V70 H26 Z" fill="#F7A8BE"/>
+    <circle cx="38" cy="65" r="1.4" fill="#FFFBF2" stroke="none"/><circle cx="54" cy="64" r="1.4" fill="#FFFBF2" stroke="none"/><circle cx="70" cy="66" r="1.4" fill="#FFFBF2" stroke="none"/><circle cx="84" cy="64" r="1.4" fill="#FFFBF2" stroke="none"/>
+    <path d="M26 48 H94 V60 H26 Z" fill="#FFE7A8"/>
+    <path d="M24 50 Q22 34 42 36 Q48 24 60 30 Q72 24 78 36 Q98 34 96 50 Z" fill="#FFFBF2"/>
+    <path d="M52 22 q8 -8 16 0 q2 9 -8 15 q-10 -6 -8 -15 Z" fill="#F28BA8"/>
+    <path d="M53 21 l7 -7 l7 7 l-7 2 Z" fill="#8FC79E" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-matcha" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="106" rx="40" ry="6" fill="#4A3338" opacity=".1" stroke="none"/>
+    <path d="M26 84 H94 V94 Q94 102 86 102 H34 Q26 102 26 94 Z" fill="#D9A877"/>
+    <path d="M26 60 H94 V84 H26 Z" fill="#FFF3C9"/>
+    <ellipse cx="60" cy="60" rx="34" ry="11" fill="#A9D8A5"/>
+    <circle cx="42" cy="58" r="1.6" fill="#8FC79E" stroke="none"/><circle cx="78" cy="62" r="1.6" fill="#8FC79E" stroke="none"/><circle cx="84" cy="56" r="1.4" fill="#F4FFF0" stroke="none"/>
+    <path d="M49 58 q11 -18 22 0 q-11 7 -22 0 Z" fill="#FFFBF2"/>
+    <path d="M58 42 q6 -5 11 0 q-5 6 -11 0 Z" fill="#8FC79E" stroke-width="2"/>
+    <circle cx="47" cy="74" r="2.4" fill="#4A3338" stroke="none"/><circle cx="73" cy="74" r="2.4" fill="#4A3338" stroke="none"/>
+    <path d="M56 78 Q60 82 64 78" stroke-width="2.2"/>
+    <ellipse cx="40" cy="79" rx="4.5" ry="3" fill="#F28BA8" opacity=".55" stroke="none"/><ellipse cx="80" cy="79" rx="4.5" ry="3" fill="#F28BA8" opacity=".55" stroke="none"/>
+  </symbol>
+
+  <symbol id="i-bread" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="106" rx="40" ry="6" fill="#4A3338" opacity=".1" stroke="none"/>
+    <path d="M26 96 L26 66 C26 50 36 42 47 46 C51 32 69 32 73 46 C84 42 94 50 94 66 L94 96 Q60 104 26 96 Z" fill="#F2C48B"/>
+    <path d="M34 60 C34 54 38 52 43 53" stroke="#FFE7C2" stroke-width="3"/>
+    <circle cx="48" cy="76" r="2.4" fill="#4A3338" stroke="none"/><circle cx="72" cy="76" r="2.4" fill="#4A3338" stroke="none"/>
+    <path d="M56 80 Q60 84 64 80" stroke-width="2.2"/>
+    <ellipse cx="41" cy="81" rx="4.5" ry="3" fill="#F28BA8" opacity=".55" stroke="none"/><ellipse cx="79" cy="81" rx="4.5" ry="3" fill="#F28BA8" opacity=".55" stroke="none"/>
+  </symbol>
+
+  <symbol id="i-cloud" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M30 86 Q12 86 14 68 Q16 54 32 56 Q36 34 60 36 Q82 36 86 56 Q106 54 106 72 Q106 86 90 86 Z" fill="#FFFFFF"/>
+    <circle cx="50" cy="68" r="2.4" fill="#4A3338" stroke="none"/><circle cx="70" cy="68" r="2.4" fill="#4A3338" stroke="none"/>
+    <path d="M56 74 Q60 78 64 74" stroke-width="2.2"/>
+    <ellipse cx="43" cy="73" rx="4.5" ry="3" fill="#F28BA8" opacity=".5" stroke="none"/><ellipse cx="77" cy="73" rx="4.5" ry="3" fill="#F28BA8" opacity=".5" stroke="none"/>
+  </symbol>
+
+  <symbol id="i-heart" viewBox="0 0 32 30"><path d="M16 28 C6 20 2 14 2 9 C2 5 5 2 9 2 C12 2 15 4 16 7 C17 4 20 2 23 2 C27 2 30 5 30 9 C30 14 26 20 16 28 Z" fill="currentColor"/></symbol>
+  <symbol id="i-cloudbg" viewBox="0 0 120 70"><path d="M26 64 Q4 64 6 44 Q8 30 26 32 Q30 6 58 8 Q86 8 90 32 Q114 30 114 48 Q114 64 94 64 Z" fill="currentColor"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 120 120"><path d="M60 8 Q64 54 112 60 Q64 66 60 112 Q56 66 8 60 Q56 54 60 8 Z" fill="currentColor"/></symbol>
+
+  <symbol id="i-strawberry" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M60 106 C28 86 22 56 38 46 C50 40 58 46 60 50 C62 46 70 40 82 46 C98 56 92 86 60 106 Z" fill="#F28BA8"/>
+    <path d="M42 44 L60 30 L78 44 L66 48 L60 42 L54 48 Z" fill="#8FC79E"/>
+    <ellipse cx="48" cy="64" rx="1.6" ry="2.4" fill="#FFFBF2" stroke="none"/><ellipse cx="62" cy="62" rx="1.6" ry="2.4" fill="#FFFBF2" stroke="none"/><ellipse cx="74" cy="68" rx="1.6" ry="2.4" fill="#FFFBF2" stroke="none"/><ellipse cx="56" cy="78" rx="1.6" ry="2.4" fill="#FFFBF2" stroke="none"/><ellipse cx="68" cy="82" rx="1.6" ry="2.4" fill="#FFFBF2" stroke="none"/>
+  </symbol>
+
+  <symbol id="i-flower" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <g fill="#FFFFFF">
+      <ellipse cx="60" cy="30" rx="13" ry="20"/><ellipse cx="60" cy="90" rx="13" ry="20"/>
+      <ellipse cx="30" cy="60" rx="20" ry="13"/><ellipse cx="90" cy="60" rx="20" ry="13"/>
+      <ellipse cx="39" cy="39" rx="13" ry="20" transform="rotate(-45 39 39)"/><ellipse cx="81" cy="81" rx="13" ry="20" transform="rotate(-45 81 81)"/>
+      <ellipse cx="81" cy="39" rx="13" ry="20" transform="rotate(45 81 39)"/><ellipse cx="39" cy="81" rx="13" ry="20" transform="rotate(45 39 81)"/>
+    </g>
+    <circle cx="60" cy="60" r="13" fill="#FFE27A"/>
+  </symbol>
+
+  <symbol id="i-arrow" viewBox="0 0 120 80" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 62 Q40 8 102 40"/><path d="M88 24 L104 41 L82 48"/>
+  </symbol>
+
+  <!-- process doodles -->
+  <symbol id="i-bowl" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="106" rx="36" ry="5" fill="#4A3338" opacity=".1" stroke="none"/>
+    <path d="M70 54 L98 16" stroke-width="5" stroke="#C9A06A"/><path d="M70 54 L98 16" stroke-width="2" stroke="#4A3338" opacity=".0"/>
+    <path d="M18 56 H102 Q98 100 60 100 Q22 100 18 56 Z" fill="#BFE3F5"/>
+    <path d="M18 56 H102" stroke-width="3"/>
+    <ellipse cx="60" cy="56" rx="42" ry="8" fill="#FFFBF2"/>
+    <circle cx="44" cy="54" r="1.6" fill="#E9D9BF" stroke="none"/><circle cx="62" cy="57" r="1.6" fill="#E9D9BF" stroke="none"/><circle cx="76" cy="54" r="1.6" fill="#E9D9BF" stroke="none"/>
+    <path d="M38 76 Q60 86 82 76" stroke="#7CBFE3"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="108" rx="30" ry="4" fill="#4A3338" opacity=".1" stroke="none"/>
+    <circle cx="36" cy="26" r="11" fill="#F28BA8"/><circle cx="84" cy="26" r="11" fill="#F28BA8"/>
+    <circle cx="60" cy="64" r="38" fill="#FFEFB5"/>
+    <path d="M60 64 V40"/><path d="M60 64 L77 74"/>
+    <circle cx="60" cy="64" r="3" fill="#4A3338"/>
+    <path d="M60 32 v3 M92 64 h-3 M60 96 v-3 M28 64 h3" stroke-width="2"/>
+  </symbol>
+  <symbol id="i-oven" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="108" rx="40" ry="4" fill="#4A3338" opacity=".1" stroke="none"/>
+    <rect x="16" y="22" width="88" height="82" rx="10" fill="#CDEBD3"/>
+    <circle cx="36" cy="36" r="4" fill="#FFFBF2"/><circle cx="52" cy="36" r="4" fill="#FFFBF2"/><circle cx="84" cy="36" r="4" fill="#F9C6D4"/>
+    <rect x="28" y="52" width="64" height="40" rx="6" fill="#FFF8EE"/>
+    <path d="M44 84 Q44 68 60 68 Q76 68 76 84 Z" fill="#F2B873"/>
+    <path d="M24 46 H96" stroke-width="2"/>
+  </symbol>
+  <symbol id="i-pipe" viewBox="0 0 120 120" fill="none" stroke="#4A3338" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="62" cy="108" rx="30" ry="4" fill="#4A3338" opacity=".1" stroke="none"/>
+    <path d="M28 18 Q58 4 92 22 L66 76 Q60 82 54 76 Z" fill="#F9C6D4"/>
+    <path d="M35 27 Q60 16 86 30" stroke-width="2"/>
+    <path d="M48 44 L58 62 M64 40 L66 62" stroke="#F28BA8" stroke-width="2.2"/>
+    <path d="M53 76 H67 L64 86 H56 Z" fill="#E6E2EA"/>
+    <path d="M40 108 Q40 98 60 98 Q80 98 80 108 Q60 113 40 108 Z" fill="#FFFBF2"/>
+    <path d="M46 99 Q46 92 60 92 Q74 92 74 99 Q60 103 46 99 Z" fill="#FFFBF2"/>
+    <path d="M54 93 Q60 84 66 93 Z" fill="#FFFBF2"/>
+  </symbol>
+</svg>
+
+<!-- ============ Loader ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <svg class="ill loader-puff"><use href="#i-puff"/></svg>
+    <p class="hand">preheating the oven…</p>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<a class="skip" href="#treats">Skip to content</a>
+
+<!-- ============ Navigation ============ -->
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Main">
+    <a href="#home" class="brand" aria-label="The Sugar Cloud — home">
+      <svg class="brand-cloud" aria-hidden="true"><use href="#i-cloud"/></svg>
+      <span>The Sugar Cloud</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#treats">Treats</a></li>
+      <li><a href="#story">Our story</a></li>
+      <li><a href="#process">How it's made</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#visit" class="nav-cta">Visit us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="home">
+  <div class="sky" aria-hidden="true">
+    <svg class="cloud c1"><use href="#i-cloudbg"/></svg>
+    <svg class="cloud c2"><use href="#i-cloudbg"/></svg>
+    <svg class="cloud c3"><use href="#i-cloudbg"/></svg>
+  </div>
+
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow hand reveal">home bakery · small batches · since 2021</p>
+      <h1 class="reveal" style="--d:.08s">Little cakes,<br><em>baked slow.</em></h1>
+      <p class="lede reveal" style="--d:.16s">Cream puffs, milk bread and small celebration cakes — made by hand in tiny batches, every single morning.</p>
+      <div class="cta-row reveal" style="--d:.24s">
+        <a class="btn btn-primary" href="#menu">See the menu</a>
+        <a class="btn btn-ghost" href="#visit">Plan a pickup</a>
+      </div>
+      <p class="hand hero-note reveal" style="--d:.32s">
+        <svg class="ill note-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+        order by 8pm for tomorrow's batch
+      </p>
+    </div>
+
+    <div class="hero-art reveal" style="--d:.2s">
+      <div class="blanket gingham g-pink" aria-hidden="true"></div>
+
+      <figure class="polaroid p1" data-tilt>
+        <div class="photo ph-pink">
+          <svg class="ill"><use href="#i-puff"/></svg>
+          <img src="images/hero-puffs.jpg" alt="Cream puffs with pastel toppings in a kraft box" onerror="this.remove()">
+        </div>
+        <figcaption class="hand">cloud puffs</figcaption>
+      </figure>
+      <figure class="polaroid p2" data-tilt>
+        <div class="photo ph-blue">
+          <svg class="ill"><use href="#i-shortcake"/></svg>
+          <img src="images/hero-cake.jpg" alt="Strawberry shortcake cakes tied with gingham ribbon" onerror="this.remove()">
+        </div>
+        <figcaption class="hand">strawberry shortcake</figcaption>
+      </figure>
+      <figure class="polaroid p3" data-tilt>
+        <div class="photo ph-mint">
+          <svg class="ill"><use href="#i-bread"/></svg>
+          <img src="images/hero-bread.jpg" alt="A golden baked bread slice on parchment paper" onerror="this.remove()">
+        </div>
+        <figcaption class="hand">milk bread, warm</figcaption>
+      </figure>
+
+      <div class="sticker hand" aria-hidden="true">baked<br>fresh<br>daily</div>
+      <svg class="deco sp1" aria-hidden="true"><use href="#i-sparkle"/></svg>
+      <svg class="deco sp2" aria-hidden="true"><use href="#i-sparkle"/></svg>
+      <svg class="deco ill fl1" aria-hidden="true"><use href="#i-flower"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Ribbon ============ -->
+<div class="ribbon gingham g-blue" aria-hidden="true">
+  <div class="ribbon-track">
+    <span>baked at 5am</span><svg><use href="#i-sparkle"/></svg>
+    <span>small batches only</span><svg><use href="#i-sparkle"/></svg>
+    <span>real butter, real vanilla</span><svg><use href="#i-sparkle"/></svg>
+    <span>no preservatives</span><svg><use href="#i-sparkle"/></svg>
+    <span>packed with ribbon</span><svg><use href="#i-sparkle"/></svg>
+    <span>baked at 5am</span><svg><use href="#i-sparkle"/></svg>
+    <span>small batches only</span><svg><use href="#i-sparkle"/></svg>
+    <span>real butter, real vanilla</span><svg><use href="#i-sparkle"/></svg>
+    <span>no preservatives</span><svg><use href="#i-sparkle"/></svg>
+    <span>packed with ribbon</span><svg><use href="#i-sparkle"/></svg>
+  </div>
+</div>
+
+<!-- ============ Featured products ============ -->
+<section class="section" id="treats">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow hand">this week's favourites</p>
+      <h2>Four little reasons<br>to <em>come back</em></h2>
+    </header>
+
+    <div class="product-grid">
+      <article class="product reveal" data-tilt style="--c:var(--pink);--c2:var(--blue);--d:0s">
+        <div class="product-art">
+          <svg class="ill"><use href="#i-puff"/></svg>
+          <img src="images/product-puff.jpg" alt="Cream puffs filled with vanilla cream" loading="lazy" onerror="this.remove()">
+        </div>
+        <span class="tag hand">bestseller</span>
+        <h3>Cloud cream puff</h3>
+        <p>Crisp choux, vanilla-bean cream and one tiny strawberry hat.</p>
+        <div class="product-foot"><span class="price">₹140</span><a class="link-draw" href="#visit">Order</a></div>
+      </article>
+
+      <article class="product reveal" data-tilt style="--c:var(--blue);--c2:var(--mint);--d:.08s">
+        <div class="product-art">
+          <svg class="ill"><use href="#i-shortcake"/></svg>
+          <img src="images/product-shortcake.jpg" alt="A slice of strawberry shortcake on a white plate" loading="lazy" onerror="this.remove()">
+        </div>
+        <span class="tag hand">seasonal</span>
+        <h3>Strawberry shortcake</h3>
+        <p>Cloud-soft sponge, whipped cream, fruit cut that same morning.</p>
+        <div class="product-foot"><span class="price">₹260</span><a class="link-draw" href="#visit">Order</a></div>
+      </article>
+
+      <article class="product reveal" data-tilt style="--c:var(--mint);--c2:var(--butter);--d:.16s">
+        <div class="product-art">
+          <svg class="ill"><use href="#i-matcha"/></svg>
+          <img src="images/product-matcha.jpg" alt="Mini matcha cake topped with cream and a cherry" loading="lazy" onerror="this.remove()">
+        </div>
+        <span class="tag hand">new</span>
+        <h3>Mini matcha cake</h3>
+        <p>Silky matcha cream on a cocoa-crumb base, finished with a cherry on top.</p>
+        <div class="product-foot"><span class="price">₹320</span><a class="link-draw" href="#visit">Order</a></div>
+      </article>
+
+      <article class="product reveal" data-tilt style="--c:var(--butter);--c2:var(--pink);--d:.24s">
+        <div class="product-art">
+          <svg class="ill"><use href="#i-bread"/></svg>
+          <img src="images/product-bread.jpg" alt="Golden milk bread rolls in a baking tray" loading="lazy" onerror="this.remove()">
+        </div>
+        <span class="tag hand">weekend only</span>
+        <h3>Milk bread buns</h3>
+        <p>Pillowy, slightly sweet, pull-apart buns. Best torn by hand while still warm.</p>
+        <div class="product-foot"><span class="price">₹240</span><a class="link-draw" href="#visit">Order</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Our story ============ -->
+<section class="section story scallop" id="story">
+  <div class="container story-grid">
+    <div class="story-copy">
+      <p class="eyebrow hand reveal">our story</p>
+      <h2 class="reveal">It started with one oven that ran four degrees hot.</h2>
+      <p class="reveal">The Sugar Cloud began in a small home kitchen in 2021, with a stubborn milk bread recipe and an oven that never quite behaved. Friends started asking for boxes. Then friends of friends.</p>
+      <p class="reveal">Today it's still a one-kitchen bakery. Everything is made in small batches, the day you collect it, and packed by hand with ribbon. We'd rather bake less and bake it right.</p>
+      <p class="signature hand reveal">— Arya, head baker (and dishwasher)</p>
+    </div>
+
+    <div class="story-art reveal" style="--d:.15s">
+      <div class="blanket gingham g-green" aria-hidden="true"></div>
+      <figure class="polaroid s1" data-tilt>
+        <div class="photo ph-butter">
+          <svg class="ill"><use href="#i-bowl"/></svg>
+          <img src="images/story-kitchen.jpg" alt="Butter, eggs, flour and sugar weighed out for baking" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption class="hand">weighed to the gram</figcaption>
+      </figure>
+      <figure class="polaroid s2" data-tilt>
+        <div class="photo ph-pink">
+          <svg class="ill"><use href="#i-pipe"/></svg>
+          <img src="images/story-box.jpg" alt="Bakery boxes tied with olive and pink ribbon" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption class="hand">packed with ribbon</figcaption>
+      </figure>
+      <svg class="deco ill fl2" aria-hidden="true"><use href="#i-strawberry"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ How it's made ============ -->
+<section class="section process" id="process">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow hand">how it's made</p>
+      <h2>Slow on purpose</h2>
+      <p class="section-sub">Four steps, none of them rushed. It's why a puff still crackles when you bite it.</p>
+    </header>
+
+    <ol class="steps">
+      <li class="step reveal" style="--d:0s">
+        <span class="step-num hand">01</span>
+        <svg class="ill step-ill"><use href="#i-bowl"/></svg>
+        <h3>Weigh &amp; sift</h3>
+        <p>Every ingredient is weighed to the gram. Flour gets sifted twice — it's the secret to the soft crumb.</p>
+      </li>
+      <li class="step reveal" style="--d:.1s">
+        <span class="step-num hand">02</span>
+        <svg class="ill step-ill"><use href="#i-clock"/></svg>
+        <h3>Rest overnight</h3>
+        <p>Doughs and batters sleep in the fridge for 12 hours. Patience does half the flavour work.</p>
+      </li>
+      <li class="step reveal" style="--d:.2s">
+        <span class="step-num hand">03</span>
+        <svg class="ill step-ill"><use href="#i-oven"/></svg>
+        <h3>Bake low &amp; slow</h3>
+        <p>The oven runs a little cooler than most. Longer bake, golden edges, nothing dry.</p>
+      </li>
+      <li class="step reveal" style="--d:.3s">
+        <span class="step-num hand">04</span>
+        <svg class="ill step-ill"><use href="#i-pipe"/></svg>
+        <h3>Fill &amp; finish by hand</h3>
+        <p>Cream goes in just before packing, so shells stay crisp until they reach you.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ Menu ============ -->
+<section class="section menu scallop" id="menu">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow hand">the menu</p>
+      <h2>What's in the <em>oven</em></h2>
+    </header>
+
+    <div class="menu-card reveal">
+      <div class="menu-cols">
+        <div class="menu-col">
+          <h3 class="hand">cakes &amp; slices</h3>
+          <ul class="menu-list">
+            <li><span class="item"><b>Strawberry shortcake slice</b><small>sponge, cream, fresh strawberries</small></span><span class="dots"></span><span class="price">₹260</span></li>
+            <li><span class="item"><b>Mini matcha cake</b><small>matcha cream, cocoa crumb, cherry</small></span><span class="dots"></span><span class="price">₹320</span></li>
+            <li><span class="item"><b>Vanilla cloud cake, 6″</b><small>serves 6–8, seasonal fruit</small></span><span class="dots"></span><span class="price">₹1,450</span></li>
+            <li><span class="item"><b>Chocolate cloud cake, 6″</b><small>serves 6–8, 3 days' notice</small></span><span class="dots"></span><span class="price">₹1,350</span></li>
+          </ul>
+        </div>
+        <div class="menu-col">
+          <h3 class="hand">pastries &amp; bread</h3>
+          <ul class="menu-list">
+            <li><span class="item"><b>Cloud cream puff</b><small>vanilla bean, one each</small></span><span class="dots"></span><span class="price">₹140</span></li>
+            <li><span class="item"><b>Milk bread buns</b><small>tray of six, weekends only</small></span><span class="dots"></span><span class="price">₹240</span></li>
+            <li><span class="item"><b>Cinnamon milk-bread roll</b><small>brown sugar glaze</small></span><span class="dots"></span><span class="price">₹110</span></li>
+            <li><span class="item"><b>Blueberry cream-cheese danish</b><small>flaky, not too sweet</small></span><span class="dots"></span><span class="price">₹190</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="menu-boxes">
+        <h3 class="hand">boxes</h3>
+        <ul class="menu-list">
+          <li><span class="item"><b>Puff box of six</b><small>pick up to two flavours</small></span><span class="dots"></span><span class="price">₹780</span></li>
+          <li><span class="item"><b>Tea-time box</b><small>2 puffs, 2 rolls, 2 brown-butter cookies</small></span><span class="dots"></span><span class="price">₹690</span></li>
+        </ul>
+      </div>
+      <p class="menu-corner hand">fictional menu — no real orders taken ✦</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Testimonials ============ -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="eyebrow hand">kind words</p>
+      <h2>Notes from <em>our table</em></h2>
+    </header>
+
+    <div class="notes">
+      <figure class="note n-pink reveal" data-tilt style="--r:-2.2deg;--d:0s">
+        <blockquote>The puffs were still crisp after a 40-minute ride home. I did not share the last one.</blockquote>
+        <figcaption>Anaya R.<span>Saturday box of six</span></figcaption>
+      </figure>
+      <figure class="note n-blue reveal" data-tilt style="--r:1.6deg;--d:.1s">
+        <blockquote>Ordered a birthday cake for eight people and it came back to the plate with eight crumbs. Perfect sweetness.</blockquote>
+        <figcaption>Kabir &amp; Sia<span>vanilla cloud cake</span></figcaption>
+      </figure>
+      <figure class="note n-butter reveal" data-tilt style="--r:-1.2deg;--d:.2s">
+        <blockquote>The milk bread has ruined supermarket bread for me. Worth the Saturday alarm.</blockquote>
+        <figcaption>Meher T.<span>weekend regular</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq scallop" id="faq">
+  <div class="container faq-grid">
+    <header class="section-head left reveal">
+      <p class="eyebrow hand">good to know</p>
+      <h2>Questions,<br><em>answered</em></h2>
+      <p class="section-sub">Something missing? Send us a message and we'll reply within a day.</p>
+    </header>
+
+    <div class="faq-list reveal" style="--d:.1s">
+      <details class="faq-item" open>
+        <summary>How do I place an order?</summary>
+        <p>Message us on Instagram or email by 8pm for next-day pickup. Custom cakes need three days' notice.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you deliver?</summary>
+        <p>Pickup is free from our kitchen window. Local delivery is available within 6 km for a small fee, on weekends.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can you work around allergies?</summary>
+        <p>We bake with wheat, dairy, eggs and nuts in one kitchen, so we can't promise allergen-free. Tell us what matters and we'll be honest about what's possible.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How should I store cream puffs?</summary>
+        <p>In the fridge, in the box we gave you, and eat them within a day. Let them sit out for ten minutes first.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I order a cake for a party?</summary>
+        <p>Yes. We make 6″ and 8″ cakes. Tell us the date, the number of guests and any colours you love.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Visit / Contact ============ -->
+<section class="section visit" id="visit">
+  <div class="container visit-grid">
+    <div class="visit-card reveal">
+      <p class="eyebrow hand">come say hi</p>
+      <h2>Pick up<br>at <em>the window</em></h2>
+
+      <dl class="visit-info">
+        <div><dt>Hours</dt><dd>Thu – Sun · 9am – 6pm<br><small>Closed Mon – Wed (baking days)</small></dd></div>
+        <div><dt>Find us</dt><dd>42 Rose Lane, India</dd></div>
+        <div><dt>Say hello</dt><dd><a class="link-draw" href="mailto:hello@thesugarcloud.example">hello@thesugarcloud.example</a><br><a class="link-draw" href="#">@thesugarcloud</a></dd></div>
+      </dl>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:hello@thesugarcloud.example">Order a box</a>
+        <a class="btn btn-ghost" href="#">Instagram</a>
+      </div>
+    </div>
+
+    <div class="map reveal" style="--d:.12s" aria-hidden="true">
+      <svg viewBox="0 0 400 360" class="map-svg">
+        <rect width="400" height="360" rx="28" fill="#CDEBD3"/>
+        <path d="M-10 90 Q120 60 220 110 T420 90" fill="none" stroke="#FFF8EE" stroke-width="22" stroke-linecap="round"/>
+        <path d="M150 -10 Q130 120 170 200 T150 380" fill="none" stroke="#FFF8EE" stroke-width="18" stroke-linecap="round"/>
+        <path d="M-10 260 Q130 230 260 270 T420 250" fill="none" stroke="#FFF8EE" stroke-width="16" stroke-linecap="round"/>
+        <path d="M-10 90 Q120 60 220 110 T420 90" fill="none" stroke="#F9C6D4" stroke-width="2" stroke-dasharray="6 8"/>
+        <rect x="240" y="150" width="70" height="60" rx="14" fill="#BFE3F5"/>
+        <rect x="40" y="130" width="80" height="60" rx="14" fill="#FFEFB5"/>
+        <rect x="260" y="20" width="90" height="46" rx="14" fill="#F9C6D4"/>
+        <circle cx="70" cy="300" r="30" fill="#A9D8A5"/>
+        <g transform="translate(176 112)">
+          <path d="M24 0 C8 0 0 12 0 24 C0 42 24 64 24 64 C24 64 48 42 48 24 C48 12 40 0 24 0 Z" fill="#F28BA8" stroke="#4A3338" stroke-width="2.5"/>
+          <circle cx="24" cy="24" r="9" fill="#FFF8EE" stroke="#4A3338" stroke-width="2.5"/>
+        </g>
+      </svg>
+      <p class="map-label hand">we're right here ↑</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer scallop">
+  <div class="gingham g-pink footer-band" aria-hidden="true"></div>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#home" class="brand brand-lg" aria-label="The Sugar Cloud — back to top">
+        <svg class="brand-cloud" aria-hidden="true"><use href="#i-cloud"/></svg>
+        <span>The Sugar Cloud</span>
+      </a>
+      <p>Home bakery &amp; dessert studio.<br>Small batches, big softness.</p>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer">
+      <h3 class="hand">explore</h3>
+      <a class="link-draw" href="#treats">Treats</a>
+      <a class="link-draw" href="#menu">Menu</a>
+      <a class="link-draw" href="#faq">FAQ</a>
+      <a class="link-draw" href="#visit">Visit us</a>
+    </nav>
+
+    <div class="footer-links">
+      <h3 class="hand">follow along</h3>
+      <a class="link-draw" href="#">Instagram</a>
+      <a class="link-draw" href="#">Pinterest</a>
+      <a class="link-draw" href="#">WhatsApp</a>
+    </div>
+
+    <div class="footer-links">
+      <h3 class="hand">contact</h3>
+      <a class="link-draw" href="mailto:hello@thesugarcloud.example">hello@thesugarcloud.example</a>
+      <span>+00 00000 00000</span>
+      <span>42 Rose Lane, India</span>
+    </div>
+  </div>
+  <p class="footer-fine">© <span id="year">2026</span> The Sugar Cloud</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
